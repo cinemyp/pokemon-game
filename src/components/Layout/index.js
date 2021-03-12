@@ -1,8 +1,7 @@
 import s from "./style.module.css";
 
-const Layout = ({ title, descr, urlBg = "", colorBg }) => {
+const Layout = ({ title, urlBg = "", colorBg, children }) => {
   let style;
-
   if (urlBg === "") style = { backgroundColor: colorBg };
   else style = { background: "url(" + urlBg + ")" };
   return (
@@ -13,9 +12,7 @@ const Layout = ({ title, descr, urlBg = "", colorBg }) => {
             <h3>{title}</h3>
             <span className={s.separator}></span>
           </div>
-          <div className={(s.desc, s.full)}>
-            <p>{descr}</p>
-          </div>
+          <div className={s.desc + " " + s.full}>{children}</div>
         </article>
       </div>
     </section>
