@@ -12,7 +12,7 @@
   content: "";
   position: fixed;
   background-attachment: fixed;
-  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a83c9ee4-6981-4ba7-8955-4ceac8f9778f/Stars.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210310%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210310T171152Z&X-Amz-Expires=86400&X-Amz-Signature=0f674a33fdbd58176770db5cb3c64d56a132283444f273c95e9fd087d28631b9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Stars.svg%22");
+  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a83c9ee4-6981-4ba7-8955-4ceac8f9778f/Stars.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210312%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210312T164308Z&X-Amz-Expires=86400&X-Amz-Signature=e4bcedf4fbadc46a97bd55ed99993956f5537955b3436c79f66374765eae40f8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Stars.svg%22");
   width: 100%;
   min-height: 100vh;
   z-index: -1;
@@ -34,7 +34,7 @@
   position: absolute;
   bottom: -300px;
   left: 0;
-  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/25bb5944-e49b-4e34-b4fd-374d5a7598ea/Trees.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210310%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210310T171154Z&X-Amz-Expires=86400&X-Amz-Signature=8ea5f1dad01cf28f902abeab90faa635a24d1c3c3da6c42ec53409cd38cec184&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Trees.svg%22")
+  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/25bb5944-e49b-4e34-b4fd-374d5a7598ea/Trees.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210312%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210312T172321Z&X-Amz-Expires=86400&X-Amz-Signature=110001220b5756bf85f01ff50c291424dc18b4a937380faa0fdae44898ecc601&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Trees.svg%22")
     bottom left repeat-x;
   background-size: cover;
   width: 100%;
