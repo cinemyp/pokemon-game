@@ -1,9 +1,7 @@
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
-import Footer from "../../components/Footer";
 import Background from "../../assets/bg1.jpg";
 import PokemonCard from "../../components/PokemonCard";
-import MenuHeader from "../../components/MenuHeader";
 import s from "./style.module.css";
 
 const POKEMONS = [
@@ -129,17 +127,12 @@ const POKEMONS = [
   },
 ];
 
-const HomePage = ({ onChangePage }) => {
-  const handleClickButton = (page) => {
-    onChangePage && onChangePage(page);
-  };
+const HomePage = () => {
   return (
     <>
-      <MenuHeader />
       <Header
         title="This is new Pokemon Card Game!"
         descr="Triple bible card game bla bla lba"
-        onClickButton={handleClickButton}
       />
       <Layout title="Rules" urlBg={Background}>
         <p>
@@ -170,8 +163,6 @@ const HomePage = ({ onChangePage }) => {
           color. To do this, the player must capture cards by placing{" "}
         </p>
       </Layout>
-
-      <Footer />
     </>
   );
 };

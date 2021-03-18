@@ -1,20 +1,17 @@
 import s from "./style.module.css";
 import cn from "classnames";
 
-const Navbar = ({ onClickMenu, isActive }) => {
-  const handleClick = () => {
-    onClickMenu && onClickMenu();
-  };
+const Navbar = ({ onClickMenu, bgActive = false, isOpen }) => {
   return (
-    <nav className={s.root}>
+    <nav className={cn(s.root, { [s.bgActive]: bgActive })}>
       <div className={s.navWrapper}>
         <p className={s.brand}>LOGO</p>
-        <a
-          onClick={handleClick}
-          className={cn(s.menuButton, { [s.active]: isActive })}
+        <div
+          onClick={onClickMenu}
+          className={cn(s.menuButton, { [s.active]: isOpen })}
         >
           <span />
-        </a>
+        </div>
       </div>
     </nav>
   );
