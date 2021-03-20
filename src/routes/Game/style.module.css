@@ -1,0 +1,10 @@
+.game {
+  display: flex;
+  flex-direction: column;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
