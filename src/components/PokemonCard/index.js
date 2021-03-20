@@ -1,4 +1,3 @@
-import { useState } from "react";
 import cn from "classnames";
 import s from "./style.module.css";
 import cardBackSide from "./assets/card-back-side.jpg";
@@ -6,7 +5,13 @@ import cardBackSide from "./assets/card-back-side.jpg";
 const PokemonCard = ({ name, img, id, type, values, active, onClickCard }) => {
   return (
     <div onClick={onClickCard} className={s.root}>
-      <div className={cn(s.pokemonCard, { [s.active]: active })}>
+      <div
+        className={cn(
+          s.pokemonCard,
+          { [s.active]: active },
+          { [s.deactive]: !active }
+        )}
+      >
         <div className={s.cardFront}>
           <div className={s.wrap + " " + s.front}>
             <div className={s.pokemon + " " + s[type]}>

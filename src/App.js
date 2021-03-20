@@ -1,5 +1,6 @@
 import { useRouteMatch, Route, Switch, Redirect } from "react-router-dom";
 import cn from "classnames";
+
 import HomePage from "./routes/Home";
 import GamePage from "./routes/Game";
 import MenuHeader from "./components/MenuHeader";
@@ -7,11 +8,11 @@ import Footer from "./components/Footer";
 import NotFoundPage from "./routes/NotFound";
 import AboutPage from "./routes/About";
 import ContactPage from "./routes/Contact";
+
 import s from "./style.module.css";
 
 const App = () => {
   const match = useRouteMatch("/");
-  console.log("####: match", match);
   return (
     <Switch>
       <Route path="/404" component={NotFoundPage} />
