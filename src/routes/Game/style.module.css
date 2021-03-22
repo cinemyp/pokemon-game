@@ -8,3 +8,7 @@
   align-items: center;
   flex-wrap: wrap;
 }
+.addPokemon {
+  display: flex;
+  justify-content: center;
+}
