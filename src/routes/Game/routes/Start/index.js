@@ -18,6 +18,7 @@ const StartPage = () => {
       setPokemons(cards);
     });
 
+    pokemonContext.onClearContext();
     return () => firebase.offPokemonSocket();
   }, []);
 
@@ -30,6 +31,7 @@ const StartPage = () => {
   const handleClickUpdatePokemon = (key) => {
     const pokemon = { ...cards[key] };
     pokemonContext.onSelectedPokemon(key, pokemon);
+    console.log("CONTEXT", pokemonContext);
     setPokemons((prevState) => ({
       ...prevState,
       [key]: {

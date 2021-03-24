@@ -32,7 +32,12 @@ const GamePage = () => {
     });
     setWhoWon(whoWon);
   };
-
+  const handleClearContext = () => {
+    setSelectedPokemons(() => {
+      const newState = {};
+      return newState;
+    });
+  };
   return (
     <PokemonContext.Provider
       value={{
@@ -40,6 +45,7 @@ const GamePage = () => {
         onSelectedPokemon: handleSelectedPokemons,
         playersPokemons: pokemons,
         onFinishGame: handleFinishGame,
+        onClearContext: handleClearContext,
         whoWon: whoWon,
       }}
     >
