@@ -1,85 +1,41 @@
-import { useState, useEffect, useHistory } from "react";
-import Layout from "../../components/Layout";
-import PokemonCard from "../../components/PokemonCard";
-
-import database from "../../services/firebase";
-
-import s from "./style.module.css";
+import { useState } from "react";
+import { useRouteMatch, Route, Switch } from "react-router-dom";
+import StartPage from "./routes/Start";
+import BoardPage from "./routes/Board";
+import FinishPage from "./routes/Finish";
+import { PokemonContext } from "../../context/pokemonContext";
 
 const GamePage = () => {
-  const [cards, setPokemons] = useState({});
+  const match = useRouteMatch();
+  const [selectedPokemons, setSelectedPokemons] = useState({});
 
-  useEffect(() => {
-    database.ref("pokemons").on("value", (snapshot) => {
-      setPokemons(snapshot.val());
-    });
-  }, []);
-  const addPokemon = ({ name, img, id, type, values }) => {
-    const newKey = database.ref().child("pokemons").push().key;
-    database.ref("pokemons/" + newKey).set({
-      name: name,
-      img: img,
-      id: id,
-      type: type,
-      values: values,
-      active: false,
+  const handleSelectedPokemons = (key, pokemon) => {
+    setSelectedPokemons((prevState) => {
+      if (prevState[key]) {
+        const copyState = { ...prevState };
+        delete copyState[key];
+        return copyState;
+      }
+      return {
+        ...prevState,
+        [key]: pokemon,
+      };
     });
   };
-  const updatePokemon = (key, { name, img, id, type, values, active }) => {
-    database.ref("pokemons/" + key).set({
-      name: name,
-      img: img,
-      id: id,
-      type: type,
-      values: values,
-      active: active,
-    });
-  };
-  const handleAddClick = () => {
-    //console.log(cards["-MSjWsPjJfFkNKk6ixPF"]);
-    addPokemon({ ...cards["-MSjWsPjJfFkNKk6ixPF"] });
-  };
-  const handleClick = (id) => {
-    setPokemons((prevState) => {
-      return Object.entries(prevState).reduce((newPokes, item) => {
-        const pokemon = { ...item[1] };
-        if (pokemon.id === id) {
-          pokemon.active = !pokemon.active;
-          updatePokemon(item[0], pokemon);
-        }
-        newPokes[item[0]] = pokemon;
 
-        return newPokes;
-      }, {});
-    });
-  };
   return (
-    <>
-      <Layout title="Cards" colorBg="#e2e2e2">
-        <div className={s.addPokemon}>
-          <button onClick={handleAddClick}>ADD NEW POKEMON</button>
-        </div>
-        <div className={s.flex}>
-          {Object.entries(cards).map(
-            ([key, { name, img, id, type, values, active }]) => (
-              <PokemonCard
-                key={key}
-                name={name}
-                img={img}
-                id={id}
-                type={type}
-                values={values}
-                active={active}
-                onClickCard={() => {
-                  handleClick(id);
-                }}
-              />
-            )
-          )}
-        </div>
-      </Layout>
-      <button>Back to HomePage</button>
-    </>
+    <PokemonContext.Provider
+      value={{
+        pokemons: selectedPokemons,
+        onSelectedPokemon: handleSelectedPokemons,
+      }}
+    >
+      <Switch>
+        <Route path={`${match.path}/`} exact component={StartPage} />
+        <Route path={`${match.path}/board`} component={BoardPage} />
+        <Route path={`${match.path}/finish`} component={FinishPage} />
+      </Switch>
+    </PokemonContext.Provider>
   );
 };
 
