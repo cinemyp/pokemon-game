@@ -1,0 +1,22 @@
+.card {
+  width: 100%;
+  max-width: 230px;
+  height: 380px;
+  cursor: pointer;
+}
+
+.cardFlow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.content {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.content button {
+  margin: 20px 0;
+}
