@@ -1,6 +1,5 @@
 import { useLocation, Route, Switch, Redirect } from "react-router-dom";
 import cn from "classnames";
-
 import HomePage from "./routes/Home";
 import GamePage from "./routes/Game";
 import MenuHeader from "./components/MenuHeader";
@@ -10,8 +9,11 @@ import AboutPage from "./routes/About";
 import ContactPage from "./routes/Contact";
 
 import s from "./style.module.css";
+import "react-notifications/lib/notifications.css";
 import { FirebaseContext } from "./context/firebaseContext";
 import Firebase from "./services/firebase";
+import { NotificationContainer } from "react-notifications";
+import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
   const location = useLocation("/");
@@ -29,8 +31,8 @@ const App = () => {
               <Switch>
                 <Route path="/" exact component={HomePage} />
                 <Route path="/home" component={HomePage} />
-                <Route path="/game" component={GamePage} />
-                <Route path="/about" component={AboutPage} />
+                <PrivateRoute path="/game" component={GamePage} />
+                <PrivateRoute path="/about" component={AboutPage} />
                 <Route path="/contact" component={ContactPage} />
                 <Route render={() => <Redirect to="/404" />} />
               </Switch>
@@ -39,6 +41,7 @@ const App = () => {
           </>
         </Route>
       </Switch>
+      <NotificationContainer />
     </FirebaseContext.Provider>
   );
 };
